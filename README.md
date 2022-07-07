@@ -6,3 +6,5 @@
 
 - **01.Inheritance - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/01.Inheritance%20-%20Exercise])
 
+- **01.Inheritance - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/01.Inheritance%20-%20Lab])
+
