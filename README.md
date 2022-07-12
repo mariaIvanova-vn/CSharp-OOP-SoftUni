@@ -11,3 +11,5 @@
 - **02.Encapsulation - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/02.Encapsulation%20-%20Exercise])
 
 - **02.Encapsulation - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/02.Encapsulation%20-%20Lab])
+
+- **03.Interfaces and Abstraction - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/03.Interfaces%20and%20Abstraction%20-%20Exercise])
