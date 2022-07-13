@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BorderControl
+﻿namespace BorderControl
 {
     public class Robot : IIdentifiable
     {
@@ -11,8 +7,8 @@ namespace BorderControl
 
         public Robot(string model, string id)
         {
-            Model = model;
-            Id = id;
+            this.Model = model;
+            this.Id = id;
         }
         public string Model
         {

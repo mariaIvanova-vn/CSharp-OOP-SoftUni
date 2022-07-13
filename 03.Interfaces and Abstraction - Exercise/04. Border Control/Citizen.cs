@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BorderControl
+﻿namespace BorderControl
 {
     public class Citizen : IIdentifiable
     {

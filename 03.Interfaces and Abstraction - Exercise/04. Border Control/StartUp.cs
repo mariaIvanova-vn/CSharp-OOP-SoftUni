@@ -1,20 +1,16 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BorderControl
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     public class StartUp
     {
         static void Main(string[] args)
         {
-            List<IIdentifiable> populationList = new List<IIdentifiable>();
+            List<IIdentifiable> data = new List<IIdentifiable>();
             IIdentifiable lifeForm;
-
             string input = Console.ReadLine();
-
             while (input != "End")
             {
                 string[] lifeFormData = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -34,15 +30,11 @@ namespace BorderControl
 
                     lifeForm = new Robot(model, id);
                 }
-
-                populationList.Add(lifeForm);
-
+                data.Add(lifeForm);
                 input = Console.ReadLine();
             }
-
             string idToLookFor = Console.ReadLine();
-
-            List<string> fakeIDs = populationList
+            List<string> fakeIDs = data
                 .Where(x => x.Id.EndsWith(idToLookFor))
                 .Select(x => x.Id)
                 .ToList();
