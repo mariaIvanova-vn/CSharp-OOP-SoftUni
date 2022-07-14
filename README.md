@@ -15,3 +15,7 @@
 - **03.Interfaces and Abstraction - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/03.Interfaces%20and%20Abstraction%20-%20Exercise])
 
 - **03.Interfaces and Abstraction - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/03.Interfaces%20and%20Abstraction%20-%20Lab])
+
+- **04.Polymorphism - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/04.Polymorphism%20-%20Exercise])
+
+- **04.Polymorphism - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/04.Polymorphism%20-%20Lab])
