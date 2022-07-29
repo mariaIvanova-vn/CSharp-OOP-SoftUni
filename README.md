@@ -25,3 +25,7 @@
 - **06.Reflection and Attributes - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/06.Reflection%20and%20Attributes%20-%20Exercise])
 
 - **06.Reflection and Attributes - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/06.Reflection%20and%20Attributes%20-%20Lab])
+
+- **07.Unit Testing - Exercises** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/07.Unit%20Testing%20-%20Exercises])
+
+- **07.Unit Testing - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/07.Unit%20Testing%20-%20Lab])
