@@ -5,6 +5,101 @@ namespace CarManager.Tests
     [TestFixture]
     public class CarManagerTests
     {
+        [Test]
+        public void EmptyConstructorShouldSetFuelTo0()
+        {
+            Car car = new Car("Toyota", "Rav4", 0.8, 70);
+            Assert.AreEqual(0, car.FuelAmount);
+        }
+        [Test]
+        [TestCase("")]
+        [TestCase(null)]
+        public void PropertyShouldThrowExceptionWhenInvalidDataIsSet(string data)
+        {
+            Assert.That(() => new Car(data, "corsa", 0.7, 50), Throws.ArgumentException.With.Message.EqualTo("Make cannot be null or empty!"));
+        }
 
+        [Test]
+        [TestCase("")]
+        [TestCase(null)]
+        public void ModelPropertyShouldThrowExceptionWhenInvalidDataIsSet(string data)
+        {
+            Assert.That(() => new Car("Opel", data, 0.7, 50), Throws.ArgumentException.With.Message.EqualTo("Model cannot be null or empty!"));
+        }
+
+        [Test]
+        public void FuelConsumptionPropertyShouldThrowExceptionWhenInvalidDataIsSet()
+        {
+            Assert.That(() => new Car("Opel", "corsa", -0.1, 50), Throws.ArgumentException.With.Message.EqualTo("Fuel consumption cannot be zero or negative!"));
+        }
+
+        [Test]
+        [TestCase(-0.2)]
+        [TestCase(0)]
+        public void FuelCapacityPropertyShouldThrowExceptionWhenInvalidDataIsSet(double capacity)
+        {
+            Assert.That(() => new Car("Opel", "corsa", 0.50, capacity), Throws.ArgumentException.With.Message.EqualTo("Fuel capacity cannot be zero or negative!"));
+        }
+
+        [Test]
+
+        public void ConstructorShouldCreateObjectWithValidData()
+        {
+            Car car = new Car("Toyota", "Rav4", 0.7, 70);
+            Assert.That(car.Make.Equals("Toyota"));
+            Assert.That(car.Model.Equals("Rav4"));
+            Assert.That(car.FuelConsumption.Equals(0.7));
+            Assert.That(car.FuelCapacity.Equals(70));
+            Assert.That(car.FuelAmount.Equals(0));
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(-5)]
+        public void RefuelMethodShouldThrowExceptionIfFuelLessOrEqualTo0(double fuel)
+        {
+            Car car = new Car("Toyota", "Rav4", 0.7, 60);
+
+            Assert.That(() => car.Refuel(fuel), Throws.ArgumentException.With.Message.EqualTo("Fuel amount cannot be zero or negative!"));
+        }
+
+        [Test]
+        [TestCase(60)]
+        [TestCase(10)]
+        public void RefuelMethodShouldIncreaseFuelAmount(double fuel)
+        {
+            Car car = new Car("Toyota", "Rav4", 0.7, 60);
+            double fuelBefore = car.FuelAmount;
+            car.Refuel(fuel);
+
+            Assert.That(car.FuelAmount, Is.EqualTo(fuel + fuelBefore));
+        }
+
+        [Test]
+        public void RefuelMethodShouldReturnAmountEqualToFuelCapacityWhenFuelExceedsIt()
+        {
+            Car car = new Car("Toyota", "Rav4", 0.7, 60);
+            car.Refuel(70);
+
+            Assert.That(car.FuelAmount, Is.EqualTo(car.FuelCapacity));
+        }
+
+        [Test]
+        public void DriveMethodShouldReduceFuelAmountIfEnoughFuel()
+        {
+            Car car = new Car("Toyota", "Rav4", 7, 60);
+            car.Refuel(60);
+            car.Drive(50);
+
+            Assert.That(car.FuelAmount, Is.EqualTo(56.5));
+        }
+
+        [Test]
+        public void DriveMethodShouldThrowExceptionWhenFuelNotEnoughToDriveCar()
+        {
+            Car car = new Car("Toyota", "Rav4", 7, 60);
+
+            Assert.That(() => car.Drive(5), Throws.InvalidOperationException.With.Message.EqualTo("You don't have enough fuel to drive!"));
+        }
     }
 }
