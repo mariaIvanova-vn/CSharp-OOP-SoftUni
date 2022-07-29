@@ -21,3 +21,7 @@
 - **04.Polymorphism - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/04.Polymorphism%20-%20Lab])
 
 - **05.Exceptions and Error Handling - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/05.Exceptions%20and%20Error%20Handling%20-%20Lab])
+
+- **06.Reflection and Attributes - Exercise** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/06.Reflection%20and%20Attributes%20-%20Exercise])
+
+- **06.Reflection and Attributes - Lab** ([https://github.com/mariaIvanova-vn/CSharp-OOP-SoftUni/tree/main/06.Reflection%20and%20Attributes%20-%20Lab])
