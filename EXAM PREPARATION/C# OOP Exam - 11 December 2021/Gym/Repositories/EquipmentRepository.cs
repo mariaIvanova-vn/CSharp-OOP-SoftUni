@@ -11,6 +11,10 @@ namespace Gym.Repositories
     public class EquipmentRepository : IRepository<IEquipment>
     {
         private List<IEquipment> models;
+        public EquipmentRepository()
+        {
+            models = new List<IEquipment>();
+        }
         public IReadOnlyCollection<IEquipment> Models { get; }
 
         public void Add(IEquipment model)
