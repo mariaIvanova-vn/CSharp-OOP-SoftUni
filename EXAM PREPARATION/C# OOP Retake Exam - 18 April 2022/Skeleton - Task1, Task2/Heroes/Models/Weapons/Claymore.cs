@@ -13,11 +13,12 @@ namespace Heroes.Models.Weapons
 
         public override int DoDamage()
         {
-            Durability -= 1;
+            
             if (Durability == 0)
             {
                 return 0;
             }
+            Durability -= 1;
             return 20;
         }
     }

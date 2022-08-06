@@ -21,27 +21,22 @@ namespace Heroes.Models.Heroes
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            private set
+            get => name;
+            set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Hero name cannot be null or empty.");
                 }
+
                 name = value;
             }
         }
 
         public int Health
         {
-            get
-            {
-                return health;
-            }
-            private set
+            get => health;
+            set
             {
                 if (value < 0)
                 {
@@ -53,11 +48,8 @@ namespace Heroes.Models.Heroes
 
         public int Armour
         {
-            get
-            {
-                return armour;
-            }
-            private set
+            get => armour;
+            set
             {
                 if (value < 0)
                 {
@@ -69,42 +61,44 @@ namespace Heroes.Models.Heroes
 
         public IWeapon Weapon
         {
-            get
-            {
-                return weapon;
-            }
-            private set
+            get => weapon;
+            set
             {
                 if (value == null)
                 {
                     throw new ArgumentException("Weapon cannot be null.");
                 }
+
                 weapon = value;
             }
         }
 
-
         public bool IsAlive => Health > 0;
-
-        public void AddWeapon(IWeapon weapon)
-        {
-            Weapon = weapon;
-        }
-
         public void TakeDamage(int points)
         {
-            int leftPoint = 0;
+            int leftoverPoints = 0;
+
             armour -= points;
             if (armour <= 0)
             {
+                leftoverPoints = Math.Abs(Armour);
                 armour = 0;
-                leftPoint = Armour;
             }
-            health -= leftPoint;
-            if (health <= 0)
+
+            if (leftoverPoints > 0)
             {
-                health = 0;
+                health -= leftoverPoints;
+
+                if (health < 0)
+                {
+                    health = 0;
+                }
             }
+        }
+
+        public void AddWeapon(IWeapon weapon)
+        {
+            this.Weapon = weapon;
         }
     }
 }

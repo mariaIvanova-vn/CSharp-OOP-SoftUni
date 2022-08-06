@@ -9,26 +9,26 @@ namespace Heroes.Repositories
 {
     public class HeroRepository : IRepository<IHero>
     {
-        private List<IHero> heroes;
+        private List<IHero> models;
+
         public HeroRepository()
         {
-            heroes = new List<IHero>();
+            models = new List<IHero>();
         }
-        public IReadOnlyCollection<IHero> Models => heroes;
-
+        public IReadOnlyCollection<IHero> Models => models;
         public void Add(IHero model)
         {
-            heroes.Add(model);
-        }
-
-        public IHero FindByName(string name)
-        {
-            return heroes.FirstOrDefault(e => e.GetType().Name == name);
+            models.Add(model);
         }
 
         public bool Remove(IHero model)
         {
-            return heroes.Remove(model);    
+            return models.Remove(model);
+        }
+
+        public IHero FindByName(string name)
+        {
+            return models.FirstOrDefault(h => h.Name == name);
         }
     }
 }
