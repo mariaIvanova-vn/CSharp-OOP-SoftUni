@@ -17,7 +17,8 @@ namespace AquaShop.Models.Aquariums
             this.Decorations = new List<IDecoration>();
             this.Fish = new List<IFish>();
         }
-        protected Aquarium(string name, int capacity) :this()
+        protected Aquarium(string name, int capacity) 
+            :this()
         {
             this.Name = name;   
             this.Capacity = capacity;   
