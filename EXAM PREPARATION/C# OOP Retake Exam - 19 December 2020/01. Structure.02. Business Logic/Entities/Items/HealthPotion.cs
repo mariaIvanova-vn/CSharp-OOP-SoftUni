@@ -7,7 +7,6 @@ namespace WarCroft.Entities.Items
 {
     public class HealthPotion : Item
     {
-        private int health;
         public HealthPotion() : base(5)
         {
         }
