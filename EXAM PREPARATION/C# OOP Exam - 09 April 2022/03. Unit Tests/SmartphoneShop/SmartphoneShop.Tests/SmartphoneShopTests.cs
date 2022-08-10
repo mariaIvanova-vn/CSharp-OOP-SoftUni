@@ -66,8 +66,7 @@ namespace SmartphoneShop.Tests
         public void RemovePhoneWithThrow()
         {
             Shop shop = new Shop(4);
-            //Car car = new Car("Toyota", 10);
-            //garage.AddCar(car);
+
             Assert.Throws<InvalidOperationException>(() => { shop.Remove("Samsung"); });
         }
         [Test]
@@ -77,9 +76,9 @@ namespace SmartphoneShop.Tests
             Smartphone smartphone = new Smartphone("Samsung", 10);
             shop.Add(smartphone);
             smartphone.CurrentBateryCharge = 50;
+
             Assert.Throws<InvalidOperationException>(() => { shop.TestPhone(null, 37); });
-          //  Assert.Throws<InvalidOperationException>(() => { smartphone.CurrentBateryCharge = 50; });
-           Assert.Throws<InvalidOperationException>(() => { shop.TestPhone("Samsung555", 1); });
+            Assert.Throws<InvalidOperationException>(() => { shop.TestPhone("Samsung555", 1); });
         }
         [Test]
         public void TestPhoneMethodShouldThrowExceptionIfBatteryChargeIsLessThanBatteryUsage()
