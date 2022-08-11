@@ -33,7 +33,7 @@ namespace NavalVessels.Core
         }
         public string ProduceVessel(string name, string vesselType, double mainWeaponCaliber, double speed)
         {
-            IVessel vessel;
+            IVessel vessel = null;
 
             if (vesselType == "Submarine")
             {
