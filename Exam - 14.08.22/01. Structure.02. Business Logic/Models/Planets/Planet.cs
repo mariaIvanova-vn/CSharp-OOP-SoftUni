@@ -40,7 +40,7 @@ namespace PlanetWars.Models.Planets
         public double Budget
         {
             get => budget;
-            set
+           private set
             {
                 if (value < 0)
                 {

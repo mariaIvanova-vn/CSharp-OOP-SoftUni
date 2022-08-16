@@ -31,6 +31,8 @@ namespace PlanetWars.Tests
 
             Assert.AreEqual(planet.Name, "Neptun");
             Assert.AreEqual(planet.Budget, 100);
+            Assert.That(planet, Is.Not.Null);
+            Assert.AreEqual(0, planet.Weapons.Count);
         }
         [Test]
         public void PlanetThrowWithNullName()
@@ -49,7 +51,7 @@ namespace PlanetWars.Tests
             });
         }
         [Test]
-        public void GPlanetThrowWithNegativeBudget()
+        public void PlanetThrowWithNegativeBudget()
         {
             Assert.Throws<ArgumentException>(() =>
             {
@@ -160,8 +162,7 @@ namespace PlanetWars.Tests
             planet.AddWeapon(weapon1);
 
             planet.UpgradeWeapon("AAAA");
-            weapon.IncreaseDestructionLevel();
-            Assert.AreEqual(weapon.Name, "AAAA");
+            Assert.AreEqual(11, weapon.DestructionLevel);
         }
         [Test]
         public void DestructOpponent()
@@ -205,6 +206,23 @@ namespace PlanetWars.Tests
 
             planet.Profit(5);
             Assert.AreEqual(95, planet.Budget);
+        }
+        [Test]
+        [TestCase(50, 60)]
+        [TestCase(51, 60)]
+
+        public void DestructOpponentShouldThrowExceptionIfNotEnoughPower(int weapon1, int weapon2)
+        {
+            Planet attacker = new Planet("Mars", 100.5);
+            Planet defender = new Planet("Earth", 200.3);
+
+            attacker.AddWeapon(new Weapon("Gun", 15.8, 50));
+            attacker.AddWeapon(new Weapon("Laser", 117.2, 60));
+
+            defender.AddWeapon(new Weapon("Laser", 117.2, weapon1));
+            defender.AddWeapon(new Weapon("WaterGun", 117.2, weapon2));
+
+            Assert.Throws<InvalidOperationException>(() => attacker.DestructOpponent(defender));
         }
     }
 }
